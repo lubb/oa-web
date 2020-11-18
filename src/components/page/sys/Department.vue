@@ -42,8 +42,10 @@
         header-cell-class-name="table-header"
       >
         <el-table-column type="index" width="50" label="序号" />
-        <el-table-column prop="name" label="部门名" width="120" show-overflow-tooltip></el-table-column>
+        <el-table-column prop="name" label="部门名称" width="120" show-overflow-tooltip></el-table-column>
         <el-table-column prop="phone" label="办公电话" width="150" show-overflow-tooltip></el-table-column>
+        <el-table-column prop="mgrName" label="部门负责人" width="120" show-overflow-tooltip></el-table-column>
+        <el-table-column prop="address" label="地址" show-overflow-tooltip></el-table-column>
         <el-table-column prop="createTime" label="创建时间" sortable show-overflow-tooltip>
           <template slot-scope="scope" >
             <span>{{formatDateTime(scope.row.createTime)}}</span>
@@ -54,8 +56,6 @@
             <span>{{formatDateTime(scope.row.modifiedTime)}}</span>
           </template>
         </el-table-column>
-        <el-table-column prop="mgrName" label="部门负责人" width="120" show-overflow-tooltip></el-table-column>
-        <el-table-column prop="address" label="地址" show-overflow-tooltip></el-table-column>
         <el-table-column label="操作">
           <template slot-scope="scope">
             <el-button
