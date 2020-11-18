@@ -1,22 +1,12 @@
 <template>
   <div class="header">
     <div class="header-left">
-      <img src="../../assets/img/xinwise-slogan.png" class="logo-img" alt="芯智慧"/>
-      <div class="logo">物联云平台</div>
+      <img src="../../assets/img/xinwise-slogan.png" class="logo-img" alt="启赢科技"/>
+      <div class="logo">OA办公系统</div>
     </div>
 
     <div class="header-right">
       <div class="header-user-con">
-        <div class="btn-icon" @click="handleGoSso">
-          <el-tooltip
-            effect="dark"
-            content="和院管理系统"
-            placement="bottom"
-          >
-            <i class="el-icon-setting"></i>
-          </el-tooltip>
-        </div>
-
         <!-- 全屏显示 -->
         <div
           class="btn-fullscreen"
@@ -54,14 +44,15 @@
     data() {
       return {
         fullscreen: false,
-        name: 'xinwis',
+        name: 'qiying',
         message: 2,
       };
     },
     computed: {
       username() {
-        let username = localStorage.getItem('ms_username');
-        return username ? username : this.name;
+        let userInfo = localStorage.getItem('userInfo');
+        const user = JSON.parse(userInfo);
+        return user.username ? user.username : user.nickName;
       },
     },
     methods: {
@@ -92,12 +83,6 @@
           }
         }
         this.fullscreen = !this.fullscreen;
-      },
-
-      // 跳转到SSO页面
-      handleGoSso () {
-        let url = '/sso';
-        window.open(url,"_blank")
       },
 
       // 退出登录
