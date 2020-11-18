@@ -26,7 +26,7 @@
   import vHead from './Header.vue';
   import vSidebar from './Sidebar.vue';
   import vTags from './Tags.vue';
-  import bus from '../assets/js/bus';
+  import bus from '../../assets/js/bus';
 
   export default {
     data() {

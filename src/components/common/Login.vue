@@ -3,13 +3,13 @@
     <el-row>
       <el-col :span="24" class="header-login">
         <el-col :span="8">
-          <img src="../assets/logo.png">
+          <img src="../../assets/logo.png">
         </el-col>
       </el-col>
     </el-row>
     <el-row class="main" ref="mainRef">
       <el-col :span="16" class="login-left">
-        <img src="../assets/bg1.png">
+        <img src="../../assets/bg1.png">
       </el-col>
       <el-col :span="8" class="login-right" ref="rightRef">
         <el-form
@@ -73,8 +73,8 @@
 </template>
 
 <script>
-  import Vcode from "vue-puzzle-vcode";
-  import http from '../utils/http';
+  import Vcode from "_vue-puzzle-vcode@1.1.4@vue-puzzle-vcode";
+  import http from '../../utils/http';
 
   export default {
     data() {
@@ -140,7 +140,7 @@
           this.$store.dispatch("updateUserInfo", res.data);
           //跳转到home
           let path = this.$route.query.redirect;
-          this.$router.replace((path == '/' || path == undefined) ? '/home' : path);
+          this.$router.replace((path == '/' || path == undefined) ? '/' : path);
         } else {
           this.isShow = false;
           this.$message.error({
@@ -188,9 +188,9 @@
   }
 
   .main{
-    background:url("../assets/bg.png") no-repeat, -webkit-linear-gradient(-45deg, #48C8FF, #54B7FE);
-    background:url("../assets/bg.png") no-repeat, -moz-linear-gradient(-135deg, #48C8FF, #54B7FE);
-    background:url("../assets/bg.png") no-repeat, linear-gradient(-135deg, #48C8FF, #54B7FE);
+    background:url("../../assets/bg.png") no-repeat, -webkit-linear-gradient(-45deg, #48C8FF, #54B7FE);
+    background:url("../../assets/bg.png") no-repeat, -moz-linear-gradient(-135deg, #48C8FF, #54B7FE);
+    background:url("../../assets/bg.png") no-repeat, linear-gradient(-135deg, #48C8FF, #54B7FE);
     background-size: cover;
     width: 100%;
   }

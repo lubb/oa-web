@@ -44,7 +44,7 @@
 </template>
 
 <script>
-  import bus from '../assets/js/bus';
+  import bus from '../../assets/js/bus';
 
   export default {
     data() {

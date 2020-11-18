@@ -123,7 +123,7 @@
               this.tableData = list;
               this.pageTotal = total - 0;
             } else {
-              this.$message.warning(res.data.exceptionMsg || '请求失败');
+              this.$message.warning(res.data.msg || '请求失败');
             }
           }).catch((error) => {
           console.log(error);

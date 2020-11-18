@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="header-left">
-      <img src="../assets/img/xinwise-slogan.png" class="logo-img" alt="芯智慧"/>
+      <img src="../../assets/img/xinwise-slogan.png" class="logo-img" alt="芯智慧"/>
       <div class="logo">物联云平台</div>
     </div>
 
@@ -48,7 +48,7 @@
   </div>
 </template>
 <script>
-  import bus from '../assets/js/bus';
+  import bus from '../../assets/js/bus';
 
   export default {
     data() {
@@ -101,10 +101,21 @@
       },
 
       // 退出登录
-      handleLoginOut() {
-        let url = '/sso/logout';
-        localStorage.removeItem('ms_username');
-        window.location = url;
+      async handleLoginOut() {
+        var res = await this.$confirm("此操作将退出系统, 是否继续?", "提示", {
+          confirmButtonText: "确定",
+          cancelButtonText: "取消",
+          type: "warning"
+        }).catch(() => {
+          this.$message({
+            type: "info",
+            message: "已取消退出登入"
+          });
+        });
+        if (res == "confirm") {
+          window.localStorage.clear();
+          this.$router.push("/login");
+        }
       }
     },
   };

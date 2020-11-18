@@ -52,8 +52,8 @@
 </template>
 
 <script>
-  import bus from '../assets/js/bus';
-  import http from '../utils/http';
+  import bus from '../../assets/js/bus';
+  import http from '../../utils/http';
 
   export default {
     data() {
