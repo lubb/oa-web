@@ -1,0 +1,68 @@
+.transfer-page {
+  .pg-title__desc {
+    padding-left: 20px;
+    font-size: 14px;
+    color: #666;
+  }
+  .el-row {
+    height:100%;
+    padding-bottom: 50px;
+  }
+  .el-col {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100%;
+  }
+  .center-col {
+    justify-content: center;
+  }
+
+  .control-btns {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .tc-btn {
+      margin: 10px 0;
+      padding: 8px;
+      min-width: 90px;
+    }
+  }
+
+  .tb-title-r {
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    color: #666;
+    margin-right: 30px;
+
+    & + .el-form-item--small {
+      margin-bottom: 0;
+      vertical-align: middle;
+    }
+  }
+
+  .control-tb .el-button--small {
+    padding: 4px;
+  }
+
+  .page-footer {
+    text-align: right;
+    border-top: 1px solid #f8f8f8;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    background: #fff;
+    z-index: 10;
+    button {
+      width: 8%;
+      min-width: 100px;
+      margin: 15px;
+    }
+  }
+
+
+}
