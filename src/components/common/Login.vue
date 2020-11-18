@@ -3,13 +3,13 @@
     <el-row>
       <el-col :span="24" class="header-login">
         <el-col :span="8">
-          <img src="../../assets/logo.png">
+          <img src="../../assets/img/logo.png">
         </el-col>
       </el-col>
     </el-row>
     <el-row class="main" ref="mainRef">
       <el-col :span="16" class="login-left">
-        <img src="../../assets/bg1.png">
+        <img src="../../assets/img/bg_login.png">
       </el-col>
       <el-col :span="8" class="login-right" ref="rightRef">
         <el-form
@@ -188,9 +188,9 @@
   }
 
   .main{
-    background:url("../../assets/bg.png") no-repeat, -webkit-linear-gradient(-45deg, #48C8FF, #54B7FE);
-    background:url("../../assets/bg.png") no-repeat, -moz-linear-gradient(-135deg, #48C8FF, #54B7FE);
-    background:url("../../assets/bg.png") no-repeat, linear-gradient(-135deg, #48C8FF, #54B7FE);
+    background:url("../../assets/img/bg.png") no-repeat, -webkit-linear-gradient(-45deg, #48C8FF, #54B7FE);
+    background:url("../../assets/img/bg.png") no-repeat, -moz-linear-gradient(-135deg, #48C8FF, #54B7FE);
+    background:url("../../assets/img/bg.png") no-repeat, linear-gradient(-135deg, #48C8FF, #54B7FE);
     background-size: cover;
     width: 100%;
   }
