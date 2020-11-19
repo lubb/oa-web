@@ -21,6 +21,22 @@ const http ={
     }
     if(params) config.data = params
     return request(config)
+  },
+  delete(url,params){
+    const config = {
+      method: 'delete',
+      url:url
+    }
+    if(params) config.data = params
+    return request(config)
+  },
+  put(url,params){
+    const config = {
+      method: 'put',
+      url:url
+    }
+    if(params) config.data = params
+    return request(config)
   }
 }
 //导出
