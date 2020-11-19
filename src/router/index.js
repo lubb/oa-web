@@ -4,6 +4,8 @@ import Login from '@/components/common/Login'
 import Home from '@/components/common/Home'
 import Dashboard from '@/components/common/Dashboard'
 import Department from '@/components/page/sys/Department'
+import Menu from '@/components/page/sys/Menu'
+import Role from '@/components/page/sys/Role'
 
 Vue.use(Router)
 
@@ -36,6 +38,18 @@ export default new Router({
           name: 'Department',
           meta: { title: '部门管理' },
           component: Department
+        },
+        {
+          path: '/menu',
+          name: 'Menu',
+          meta: { title: '菜单管理' },
+          component: Menu
+        },
+        {
+          path: '/role',
+          name: 'Role',
+          meta: { title: '角色管理' },
+          component: Role
         },
       ]
     }

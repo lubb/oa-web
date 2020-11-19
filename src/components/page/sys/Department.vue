@@ -12,8 +12,7 @@
           </el-button>
         </el-form>
       </div>
-      <el-table :data="tableData" border stripe height="300" class="table" ref="multipleTable"
-                header-cell-class-name="table-header">
+      <el-table :data="tableData" border stripe height="300" class="table" ref="multipleTable" header-cell-class-name="table-header">
         <el-table-column type="index" width="50" label="序号"/>
         <el-table-column prop="name" label="部门名称" width="120" show-overflow-tooltip></el-table-column>
         <el-table-column prop="phone" label="办公电话" width="150" show-overflow-tooltip></el-table-column>
@@ -93,7 +92,7 @@
           </span>
           <span slot="footer" class="dialog-footer">
             <el-button @click="editDialogVisible = false">取 消</el-button>
-            <el-button type="primary" @click="update" :disabled="btnDisabled" :loading="btnLoading">确 定</el-button>
+            <el-button type="primary" @click="update" :disabled="btnDisabled" :loading="btnLoading" v-hasPermission="'department:update'">确 定</el-button>
           </span>
         </el-dialog>
       </div>
@@ -312,7 +311,7 @@
         this.query = {
           pageNo: 1,
           pageSize: 10,
-          recordTime: [],
+          name: '',
         };
         this.getTableData();
       },
