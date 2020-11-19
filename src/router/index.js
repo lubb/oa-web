@@ -6,6 +6,7 @@ import Dashboard from '@/components/common/Dashboard'
 import Department from '@/components/page/sys/Department'
 import Menu from '@/components/page/sys/Menu'
 import Role from '@/components/page/sys/Role'
+import User from '@/components/page/sys/User'
 
 Vue.use(Router)
 
@@ -50,6 +51,12 @@ export default new Router({
           name: 'Role',
           meta: { title: '角色管理' },
           component: Role
+        },
+        {
+          path: '/user',
+          name: 'User',
+          meta: { title: '用户管理' },
+          component: User
         },
       ]
     }

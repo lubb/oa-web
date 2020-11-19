@@ -381,7 +381,7 @@
       // 如果路由有变化，会再次执行该方法
       '$route': function (to, from) {
         if (this.$route.fullPath.indexOf('role') > -1) {
-          this.getTableData();
+          this.getRoleList();
         }
       },
     },
