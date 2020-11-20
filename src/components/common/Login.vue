@@ -61,19 +61,10 @@
     <el-row class="footer">
       Copyright @ 2004-2021 广东火壁虎建材有限公司 All Rights Reserved
     </el-row>
-    <!-- 验证码 -->
-    <Vcode
-      :show="isShow"
-      @success="success"
-      @close="close"
-      :canvasWidth="400"
-      :canvasHeight="300"
-    />
   </div>
 </template>
 
 <script>
-  import Vcode from "_vue-puzzle-vcode@1.1.4@vue-puzzle-vcode";
   import http from '../../utils/http';
 
   export default {
@@ -104,7 +95,6 @@
       };
     },
     components: {
-      Vcode
     },
 
     methods: {
@@ -114,42 +104,39 @@
           if (!valid) {
             return;
           } else {
-            this.isShow = true;
+            this.success();
           }
         });
+
       },
       //重置表单
       resetForm: function() {
         this.$refs.userLoginFormRef.resetFields();
       },
+
       //验证成功
       async success() {
         this.loading = true;
-        //发起登入请求
-        const { data: res , headers : headers} = await http.post(
-          "/doLogin",{username:this.userLoginForm.username,password:this.userLoginForm.password}
-        );
-        if (res.status == 0) {
-          this.$message({
-            title: "登入成功",
-            message: "欢迎你进入网站管理系统",
-            type: "success"
-          });
-          localStorage.setItem("oa_token", headers.token);
-          localStorage.setItem("userInfo", res.data);
-          this.$store.dispatch("updateUserInfo", res.data);
-          //跳转到home
-          let path = this.$route.query.redirect;
-          this.$router.replace((path == '/' || path == undefined) ? '/' : path);
-        } else {
-          this.isShow = false;
-          this.$message.error({
-            title: "登入失败",
-            message: res.msg,
-            type: "error"
-          });
+        http.post("/doLogin", {username:this.userLoginForm.username,password:this.userLoginForm.password})
+          .then(res => {
+            this.loading = false;
+            if (res && res.data.status == 0) {
+              this.$message({
+                title: "登入成功",
+                message: "欢迎你进入网站管理系统",
+                type: "success"
+              });
+              localStorage.setItem("oa_token", res.headers.token);
+              localStorage.setItem("userInfo", res.data.data);
+              this.$store.dispatch("updateUserInfo", res.data.data);
+              //跳转到home
+              let path = this.$route.query.redirect;
+              this.$router.replace((path == '/' || path == undefined) ? '/' : path);
+            }
+          }).catch((error) => {
+            console.log(error);
         }
-        this.loading = false;
+        );
       },
 
       //设置背景的高度
@@ -159,9 +146,6 @@
         let right = '0';
         let top = (this.windowHeight - 102 - 138)/3.8 + 'px';
         this.$refs.rightRef.$el.style.margin =top +' '+ right;
-      },
-      close() {
-        this.isShow = false;
       }
     },
     created() {

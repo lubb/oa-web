@@ -32,14 +32,15 @@ service.interceptors.response.use(response => {
   //接收到响应数据并成功后的一些共有的处理，关闭loading等
   return response
 }, error => {
-  console.log("error:"+error);
   if (error.response.status == 504 || error.response.status == 404) {
     Message.error({message: '服务器被吃了( ╯□╰ )'})
   } else if (error.response.status == 403) {
-    Message.error({message: '权限不足，请联系管理员'})
+    Message.error({message: 'Token超时，请重新登录!'})
+    localStorage.clear();
+    router.replace('/login');
   } else if (error.response.status == 401) {
-    Message.error({message: error.response.data.msg ? error.response.data.msg : '尚未登录，请登录'})
-    router.replace('/');
+    Message.error({message: error.response.data.msg ? error.response.data.msg : '尚未登录，请登录!'})
+    router.replace('/login');
   } else {
     if (error.response.data.msg) {
       Message.error({message: error.response.data.msg})

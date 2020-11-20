@@ -51,8 +51,10 @@
     computed: {
       username() {
         let userInfo = localStorage.getItem('userInfo');
-        const user = JSON.parse(userInfo);
-        return user.username ? user.username : user.nickName;
+        if(userInfo){
+          const user = JSON.parse(userInfo);
+          return user.username ? user.username : user.nickName;
+        }
       },
     },
     methods: {
