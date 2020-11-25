@@ -7,6 +7,8 @@ import Department from '@/components/page/sys/Department'
 import Menu from '@/components/page/sys/Menu'
 import Role from '@/components/page/sys/Role'
 import User from '@/components/page/sys/User'
+import ProcessDefinition from '@/components/page/activiti/Defintions'
+import ProcessInstance from '@/components/page/activiti/ProcessInstance'
 
 Vue.use(Router)
 
@@ -57,6 +59,18 @@ export default new Router({
           name: 'User',
           meta: { title: '用户管理' },
           component: User
+        },
+        {
+          path: '/processDefinition',
+          name: 'ProcessDefinition',
+          meta: { title: '流程定义管理' },
+          component: ProcessDefinition
+        },
+        {
+          path: '/processInstance',
+          name: 'ProcessInstance',
+          meta: { title: '流程实例管理' },
+          component: ProcessInstance
         },
       ]
     }
